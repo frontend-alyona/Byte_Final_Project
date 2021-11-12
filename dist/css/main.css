@@ -1,0 +1,352 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/*main {*/
+/*  background: darkgray;*/
+/*}*/
+.app-wrapper {
+  font-family: sans-serif;
+  background: url(../../dist/assets/1.jpeg) center no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+}
+.hide {
+  display: none!important;
+}
+.show {
+  display: flex!important;
+}
+
+.container {
+  max-width: 1140px;
+  /* padding: 0 15px; */
+  margin: 0 auto;
+  width: 100%;
+
+}
+.header-container {
+  display: flex;
+  justify-content: center;
+}
+.header, .logged-header {
+  height: 100px;
+  border-bottom: 3px solid rgb(255, 166, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  background: transparent;
+}
+.logged-header {
+  background: black;
+}
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo, .user-name {
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+.user-name {
+  color:rgb(255, 166, 0)
+}
+.logo span {
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: ease-out 0.5s;
+  border: 1px solid transparent;
+  color: azure;
+}
+.first-letter{
+  color: rgb(255, 166, 0)!important;
+  background-color: black;
+  font-size: 30px;
+  font-weight: bold;
+  border: 1px solid rgb(255, 166, 0);
+}
+.logo span:nth-child(even) {
+  border-radius: 50%;
+  padding: 5px 10px;
+  color: gold;
+}
+.logo span:nth-child(odd):hover {
+  background-color: black;
+  color: rgb(255, 166, 0);
+  border: 1px solid black;
+  transition: ease-out 0.5s;
+}
+.logo span:nth-child(even):hover {
+  background-color: rgb(255, 166, 0);
+  color: black;
+  border: 1px solid rgb(255, 166, 0);
+  transition: ease-out 0.5s;
+}
+.animation-block, .animation-first-letter {
+  opacity: 0;
+  animation: slidein;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+.animation-block {
+  animation-delay: 2s;
+}
+
+@keyframes slidein {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.btn {
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-text, .logout {
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 0;
+  transition: ease-out 0.5s;
+}
+.logout {
+  color: rgb(255, 53, 53);
+  border-radius: 5px;
+  padding: 5px;
+}
+.btn-text:hover {
+  color: azure;
+  font-weight: bolder;
+  transition: ease-in-out 0.3s;
+}
+
+.avatar {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  font-size: 22px;
+  line-height: 36px;
+  text-align: center;
+  border: 2px solid rgb(255, 166, 0);
+  border-radius: 50%;
+  text-transform: uppercase;
+  margin-left: 8px;
+  color: rgb(255, 166, 0);
+}
+
+.auth-form {
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  padding: 16px;
+  margin-top: 100px;
+  border-radius: 8px;
+  background-color: rgba(252, 252, 252, 0.75);
+  /*opacity: 0.75;*/
+}
+
+.form-title {
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 32px;
+  margin-top: 8px;
+}
+
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.input-error {
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  font-size: 14px;
+  color: red;
+}
+
+.text-control:last-of-type {
+  margin-bottom: 42px;
+}
+
+.text-control label {
+  margin-bottom: 4px;
+}
+
+.input {
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.btn-form {
+  padding: 8px 16px;
+  border: 2px solid black;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: transparent;
+  align-self: flex-end;
+}
+
+.board {
+  padding: 16px 15px 0 15px ;
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: 1fr 1fr;
+  background: url(../../dist/assets/1.jpeg) center no-repeat;
+  background-size: cover;
+  height: calc(100vh - 100px);
+  width: 100%;
+}
+
+.task-form {
+  box-shadow: 0 5px 10px rgb(154 160 185 / 5%),
+  0 15px 40px rgb(166 173 201 / 20%);
+  padding: 32px;
+  border-radius: 8px;
+  align-self: start;
+  background-color: azure;
+}
+
+.task-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-card {
+  position: relative;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+  0 15px 40px rgba(166, 173, 201, 0.2);
+  padding: 24px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  background: rgb(255, 166, 0);
+}
+.task-cards {
+  border: 2px solid rgb(255, 166, 0);
+  padding: 5px;
+  border-radius: 10px;
+  height: calc(85vh - 30px);
+  overflow-y: auto;
+}
+.task-cards::-webkit-scrollbar {
+  width: 0px;
+}
+.task-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.finished {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.task-description {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.task-date {
+  color: rgb(87, 86, 86);
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.time-tracker {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.timer-btn {
+  position: relative;
+  border-radius: 100%;
+  width: 22px;
+  height: 22px;
+  border: none;
+  background-color: crimson;
+  margin-right: 8px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.timer-btn i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.timer-btn:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+}
+
+.timer-btn-play {
+  background-color: forestgreen;
+}
+
+.timer-btn-stop {
+  background-color: crimson;
+}
+
+.btn-small {
+  padding: 4px 8px;
+  border: 1px solid black;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.task-delete-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid gray;
+  color: gray;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .board {
+    grid-template-columns: 1fr;
+  }
+}
