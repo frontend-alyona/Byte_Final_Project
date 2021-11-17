@@ -1,18 +1,16 @@
-import RenderClass from "./render";
-
-
 class Api {
-  baseUrl = 'https://byte-tasks.herokuapp.com/api'
+  baseUrl = 'https://byte-tasks.herokuapp.com/api';
+  headers = {
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
+    'Content-Type': 'application/json;charset=utf-8'
+  }
   constructor(path) {
     this.path = path;
   }
   getUser() {
     fetch(this.baseUrl + '/auth/user/self', {
       method:'GET',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json;charset=utf-8'
-      }
+      headers: this.headers
     })
       .then(response => response.json())
       .then(user => {
@@ -23,10 +21,7 @@ class Api {
   addTask(body) {
    return fetch(this.baseUrl + this.path, {
       method:'POST',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json;charset=utf-8'
-      },
+      headers: this.headers,
       body: JSON.stringify(body)
     })
      .then(response => response.json())
@@ -35,20 +30,14 @@ class Api {
   removeTask(id) {
    return fetch(this.baseUrl + `/task/${id}`, {
       method:'Delete',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json;charset=utf-8'
-      }
+      headers: this.headers
     })
   }
   patchRequest(id, body) {
     // console.log('body before sent', body);
     return fetch(this.baseUrl + `/task/${id}`, {
       method:'PATCH',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json;charset=utf-8'
-      },
+      headers: this.headers,
       body: JSON.stringify(body)
     })
     .then(res => res.json())
@@ -58,10 +47,7 @@ class Api {
     let list = [];
     return fetch(this.baseUrl + '/task', {
       method:'GET',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json;charset=utf-8'
-      }
+      headers: this.headers
     })
       .then(response => response.json())
       .then(tasks => {

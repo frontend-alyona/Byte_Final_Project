@@ -2,6 +2,9 @@ import InputClass from "./input";
 
 class Auth {
   baseUrl = 'https://byte-tasks.herokuapp.com/api'
+  headers = {
+    'Content-Type': 'application/json;charset=utf-8'
+  }
   constructor(path) {
     this.path = path;
   }
@@ -12,9 +15,7 @@ class Auth {
     }
     fetch(this.baseUrl + this.path, {
       method:'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
+      headers: this.headers,
       body: JSON.stringify(reqBody)
     })
       .then(response => response.json())
@@ -35,9 +36,7 @@ class Auth {
     }
     fetch(this.baseUrl + this.path, {
       method:'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
+      headers: this.headers,
       body: JSON.stringify(reqBody)
     })
       .then(response => response.json())

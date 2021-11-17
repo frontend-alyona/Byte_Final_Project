@@ -8,7 +8,7 @@
 /*}*/
 .app-wrapper {
   font-family: sans-serif;
-  background: url(../../dist/assets/1.jpeg) center no-repeat;
+  background: url(../6a0cc736d0cfdc33cbef.jpeg) center no-repeat;
   background-size: cover;
   height: 100vh;
 
@@ -223,7 +223,7 @@
   display: grid;
   grid-gap: 32px;
   grid-template-columns: 1fr 1fr;
-  background: url(../../dist/assets/1.jpeg) center no-repeat;
+  background: url(../6a0cc736d0cfdc33cbef.jpeg) center no-repeat;
   background-size: cover;
   height: calc(100vh - 100px);
   width: 100%;

@@ -15,7 +15,7 @@ class RenderClass {
         const idx = this.tasks.findIndex( item => item._id === id);
         return this.tasks[idx]
     }
-    rerender(card, action) {
+    rerender(card, action) {  
         this.updateTask(card);
         const element = document.getElementById(card._id);
         const title = element.querySelector('.task-title')
@@ -25,7 +25,6 @@ class RenderClass {
         const timerBtn = element.querySelector('.timer-btn')
         const date = element.querySelector('.task-date')
         const btn = element.querySelector('.stopTask')
-        const test = element.querySelector('.test-class')
         if (action === 'task') {
             if(card.isFinished === true) {
                 title.classList.add('finished')
@@ -33,6 +32,8 @@ class RenderClass {
                 date.classList.add('finished')
                 timerSpan.classList.add('finished')
                 btn.innerHTML = 'Restart'
+                timerBtn.classList.remove('timer-btn-play')
+                timerBtn.classList.remove('timer-btn-stop')
                 timerBtn.setAttribute('disabled', 'disabled')
             }
             if(card.isFinished === false) {
@@ -41,10 +42,15 @@ class RenderClass {
                 date.classList.remove('finished')
                 btn.innerHTML = 'Mark as done'
                 timerSpan.classList.remove('finished')
+                if (card.isActive) {
+                    timerBtn.classList.add('timer-btn-stop')
+                }else {
+                    timerBtn.classList.add('timer-btn-play')
+                }     
                 timerBtn.removeAttribute("disabled")
             }
         }
-        if (action === 'timer') {
+        if (action === 'timer') {  
             if (card.isActive) {
                 timerBtnIcon.classList.remove('fa-pause')
                 timerBtn.classList.remove('timer-btn-stop')
@@ -66,6 +72,7 @@ class RenderClass {
     updateTask(cart){
         const idx = this.tasks.findIndex(item => item._id === cart._id);
         this.tasks[idx] = cart
+        // console.log('Changed list', this.tasks);
     }
 }
 export default RenderClass;
