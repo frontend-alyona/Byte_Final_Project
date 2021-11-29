@@ -1,5 +1,5 @@
 import InputClass from './js/classes/input'
-import Auth from './js/classes/auth'
+// import Auth from './js/classes/auth'
 import Api from './js/classes/api'
 import RenderClass from './js/classes/render';
 import Card from './js/classes/card';
@@ -10,15 +10,25 @@ import './main.css'
 
 const string = 'to-do-list.html';
 const start = 'index.html'
+
+// const authBlock = document.querySelector('.authorized-block')
+// const loginBlock = document.querySelector('.app-wrapper')
 window.onload = function () {
     if (!localStorage.getItem('token') && document.location.href.includes(string)) {
         document.location.href = 'index.html'
     }if (localStorage.getItem('token') && document.location.href.includes(start)) {
       document.location.href = 'to-do-list.html'
-  }
-    
+  }   
 }
-
+// window.onload = function () {
+//       if (!localStorage.getItem('token')) {
+//           loginBlock.classList.add('show')
+//           authBlock.classList.remove('hide')
+//       }if (localStorage.getItem('token')) {
+//           loginBlock.classList.remove('hide')
+//           authBlock.classList.add('show')
+//     }
+//   }
 const register = document.getElementById('login')
 const h3 = document.querySelector('h3');
 
@@ -45,8 +55,8 @@ if (!localStorage.getItem('token')) {
       input.classList.remove('show');
     }
   }
-  const signIn = new Auth('/auth/login')
-  const signUp = new Auth('/auth/register')
+  const signIn = new Api('/auth/login')
+  const signUp = new Api('/auth/register')
   const checkInput = new InputClass()
   document.querySelector('.btn-form').addEventListener('click',(e) => {checkData(e)})
   if(!isLogin) {
@@ -70,7 +80,7 @@ if (!localStorage.getItem('token')) {
   new Api().getUser();
   form.addTaskForm();
   showTasks();
-  const logOut =  new Auth()
+  const logOut =  new Api()
   document.querySelector('#logout').addEventListener('click', () => logOut.logout())
   const taskInput = new InputClass();
   taskInput.setValue('taskName', '#_taskName')
