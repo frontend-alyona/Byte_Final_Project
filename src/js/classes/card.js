@@ -3,6 +3,7 @@ import TimerClass from "./timer";
 class Card {
   timerClass = new TimerClass();  
   constructor() {}
+
   createCard(card) {
     const element = document.querySelector(".task-cards");
     element.innerHTML += `
@@ -23,4 +24,5 @@ class Card {
             </div>`;
   }
 }
+
 export default Card;

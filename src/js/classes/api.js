@@ -14,6 +14,7 @@ class Api {
   constructor(path) {
     this.path = path;
   }
+
   getUser() {
     fetch(this.baseUrl + '/auth/user/self', {
       method:'GET',
@@ -25,10 +26,11 @@ class Api {
         document.querySelector('.avatar').innerHTML = user.name.charAt(0).toUpperCase();
       })
   }
+
   addTask(body) {
    return fetch(this.baseUrl + this.path, {
       method:'POST',
-      headers: this.headers,
+      headers: this.authHeaders,
       body: JSON.stringify(body)
     })
      .then(response => response.json())
@@ -40,10 +42,11 @@ class Api {
       headers: this.authHeaders
     })
   }
+
   patchRequest(id, body) {
     return fetch(this.baseUrl + `/task/${id}`, {
       method:'PATCH',
-      headers: this.headers,
+      headers: this.authHeaders,
       body: JSON.stringify(body)
     })
     .then(res => res.json())
@@ -60,6 +63,7 @@ class Api {
         return tasks;
       })
   }
+
   login(body) {
     const reqBody = {
       email: body.email.value,
@@ -79,6 +83,7 @@ class Api {
         }
       })
   }
+
   register(body) {
     const reqBody = {
       email: body.email.value,
@@ -98,9 +103,11 @@ class Api {
         }
       })
   }
+
   logout() {
     localStorage.removeItem('token')
     window.location.href = 'index.html';
   }
 }
+
 export default Api;

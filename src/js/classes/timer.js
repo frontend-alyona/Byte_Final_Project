@@ -5,6 +5,7 @@ class TimerClass {
     this.isActive = isActive;
     this.timeTracked = timeTracked
   }
+  
   startTimer(parent,timeTracked) {
     const formatted = moment.utc(timeTracked)
     const card = document.getElementById(parent)

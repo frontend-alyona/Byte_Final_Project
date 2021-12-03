@@ -11,8 +11,6 @@ import './main.css'
 const string = 'to-do-list.html';
 const start = 'index.html'
 
-// const authBlock = document.querySelector('.authorized-block')
-// const loginBlock = document.querySelector('.app-wrapper')
 window.onload = function () {
     if (!localStorage.getItem('token') && document.location.href.includes(string)) {
         document.location.href = 'index.html'
@@ -20,15 +18,7 @@ window.onload = function () {
       document.location.href = 'to-do-list.html'
   }   
 }
-// window.onload = function () {
-//       if (!localStorage.getItem('token')) {
-//           loginBlock.classList.add('show')
-//           authBlock.classList.remove('hide')
-//       }if (localStorage.getItem('token')) {
-//           loginBlock.classList.remove('hide')
-//           authBlock.classList.add('show')
-//     }
-//   }
+
 const register = document.getElementById('login')
 const h3 = document.querySelector('h3');
 
@@ -37,6 +27,10 @@ const renderClass = new RenderClass();
 const taskCard = new Card();
 const timerClass = new TimerClass();
 const form = new FormClass();
+const signIn = new Api('/auth/login');
+const signUp = new Api('/auth/register');
+const checkInput = new InputClass();
+
 let isLogin = true;
 if (!localStorage.getItem('token')) {
   form.addLoginForm()
@@ -55,9 +49,7 @@ if (!localStorage.getItem('token')) {
       input.classList.remove('show');
     }
   }
-  const signIn = new Api('/auth/login')
-  const signUp = new Api('/auth/register')
-  const checkInput = new InputClass()
+  
   document.querySelector('.btn-form').addEventListener('click',(e) => {checkData(e)})
   if(!isLogin) {
     checkInput.setValue('email','#_email');
@@ -67,6 +59,7 @@ if (!localStorage.getItem('token')) {
     checkInput.setValue('password','#_password');
     checkInput.setValue('name','#_name')
   }
+  
   function checkData(e) {
     e.preventDefault();
     const body = checkInput.getBody();
@@ -77,7 +70,7 @@ if (!localStorage.getItem('token')) {
     }
   }
 }else {
-  new Api().getUser();
+  apiRequest.getUser();
   form.addTaskForm();
   showTasks();
   const logOut =  new Api()

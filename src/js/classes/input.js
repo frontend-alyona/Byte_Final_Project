@@ -21,25 +21,29 @@ class InputClass {
       isValid: false
     }
   };
-  constructor() {
-  }
+  constructor() {}
+
   setValue(name, selector) {
     document.querySelector(selector).addEventListener('change', (event)=> {
       this.validateData(name, event.target.value)
     })
   }
+
   resetForm() {
     document.querySelector('#_email').value = '';
     document.querySelector('#_password').value = '';
     document.querySelector('#_name').value = '';
   }
+
   resetTaskForm() {
     document.getElementById('_taskName').value = '';
     document.getElementById('_description').value = '';
   }
+
   getBody () {
     return this.regBody;
   }
+
   validateData(name, value) {
     const disabledBtn = document.getElementById('send-form');
     switch(name) {
@@ -98,6 +102,7 @@ class InputClass {
         return false
     }
   }
+  
   checkedFieldsBeforeSend() {
     if ( this.regBody.email.isValid && this.regBody.password.isValid) {
       return true;

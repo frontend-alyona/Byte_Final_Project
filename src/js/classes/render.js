@@ -3,18 +3,21 @@ import TimerClass from "./timer";
 class RenderClass {
     tasks = [];
     timerClass = new TimerClass();
-    constructor() {
-    }
+    constructor() {}
+
     saveList(taskList) {
         this.tasks = taskList;
     }
+
     getTaskList() {
         return this.tasks;
     }
+
     getTask(id) {
         const idx = this.tasks.findIndex( item => item._id === id);
         return this.tasks[idx]
     }
+
     rerender(card, action) {  
         this.updateTask(card);
         const element = document.getElementById(card._id);
@@ -69,10 +72,12 @@ class RenderClass {
             }
         }
       }
+
     updateTask(cart){
         const idx = this.tasks.findIndex(item => item._id === cart._id);
         this.tasks[idx] = cart
         // console.log('Changed list', this.tasks);
     }
 }
+
 export default RenderClass;

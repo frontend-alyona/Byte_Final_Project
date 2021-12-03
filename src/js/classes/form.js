@@ -1,6 +1,5 @@
 class FormClass {
-  constructor() {
-  }
+  constructor() {}
 
   addLoginForm() {
     const loginForm = document.getElementById('login-form')
@@ -25,6 +24,7 @@ class FormClass {
             </div>
             <button id="send-form" type="submit" class="btn btn-form">Submit</button>`
   }
+
   addTaskForm() {
     const taskForm = document.querySelector('#task-area')
     taskForm.innerHTML = `
@@ -46,4 +46,5 @@ class FormClass {
               </form>`
   }
 }
+
 export default FormClass;
