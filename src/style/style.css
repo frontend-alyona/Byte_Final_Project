@@ -1,8 +1,12 @@
 .app-wrapper{
     font-family: sans-serif;
+    background: url(./6a0cc736d0cfdc33cbef.jpeg);
+    
 }
 .header{
-    border-bottom: 1px solid black;
+    border-bottom: 3px solid rgb(255, 166, 0); 
+     
+    
 }
 .header-container{
     max-width: 1170px;
@@ -12,12 +16,73 @@
     justify-content: space-between;
     margin: 0 auto;
 }
-.logo{
-    font-size: 36px;
-    text-transform: uppercase;
-    font-weight: 700;
 
+.logo, .user-name {
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
 }
+.user-name {
+  color:rgb(255, 166, 0)
+}
+.logo span {
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: ease-out 0.5s;
+  border: 1px solid transparent;
+  color: azure;
+}
+ .first-letter{
+  color: rgb(255, 166, 0)!important;
+  background-color: black;
+  font-size: 30px;
+  font-weight: bold;
+  border: 1px solid rgb(255, 166, 0);
+}
+.logo span:nth-child(even) {
+  border-radius: 50%;
+  padding: 5px 10px;
+  color: gold;
+}
+.logo span:nth-child(odd):hover {
+background-color: black;
+color: rgb(255, 166, 0);
+border: 1px solid black;
+transition: ease-out 0.5s;
+}
+.logo span:nth-child(even):hover {
+background-color: rgb(255, 166, 0);
+color: black;
+border: 1px solid rgb(255, 166, 0);
+transition: ease-out 0.5s;
+}
+.animation-block, .animation-first-letter {
+  opacity: 0;
+  animation: slidein;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+.animation-block {
+animation-delay: 2s;
+}
+
+@keyframes slidein {
+0% {
+  opacity: 0;
+}
+
+75% {
+  opacity: 1;
+  transform: scale(1.5);
+}
+100% {
+  transform: scale(1);
+  opacity: 1;
+}
+}
+
 .btn{
     cursor: pointer;
     outline: none;
@@ -29,6 +94,8 @@
     font-size: 18px;
     text-transform: uppercase;
     padding: 0;
+    color:  rgb(255, 166, 0);
+    font-weight: 700;
 
 }
 .btn-text:hover{
@@ -40,23 +107,32 @@
     height: 36px;
     font-size: 22px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 3px solid rgb(255, 166, 0);
     text-transform: uppercase;
     text-align: center;
     margin-left: 8px;
     line-height: 36px;
+    color: #fff;
 }
 .container{
     max-width: 1170px;
     padding: 0 15px;
+    padding-bottom: 70px;
+    
+    
 }
 .auth-form{
     max-width:500px;
     margin: 0 auto;
-    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, .2);
+    box-shadow: 0 5px 10px rgb(255, 255, 255),
+    0 15px 40px rgb(97, 70, 20);;
     padding: 16px;
     margin-top: 100px;
+    margin-bottom: 200px;
     border-radius: 8px;
+    margin-left: 500px;
+    background: transparent;
+    
 }
 .form-title{
     font-size: 28px;
@@ -64,6 +140,7 @@
     font-weight: 700;
     margin-bottom: 32px;
     margin-top: 8px;
+    color: #fff;
 }
 .auth-form form{
     display: flex;
@@ -75,9 +152,11 @@
     flex-direction: column;
     margin-bottom: 22px;
     position: relative;
+    color: #fff;
 }
 .text-control label{
     margin-bottom: 4px;
+    color: #fff;
 }
 .text-control:last-of-type{
     margin-bottom: 42px;
@@ -91,26 +170,29 @@
 }
 .btn-form{
     padding: 8px 16px;
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 4px;
     font-size: 18px;
     font-weight: 500;
     background-color: transparent;
     align-items: flex-end;
+    color: #fff;
 }
 .board {
     padding-top: 16px;
     display: grid;
     grid-gap: 32px;
     grid-template-columns: 1fr 1fr;
+    
   }
   
   .task-form {
-    box-shadow: 0 5px 10px rgb(154 160 185 / 5%),
-      0 15px 40px rgb(166 173 201 / 20%);
+    box-shadow: 0 5px 10px rgb(255, 255, 255),
+      0 15px 40px rgb(97, 70, 20);
     padding: 32px;
     border-radius: 8px;
     align-self: start;
+    margin-bottom: 270px;
   }
   
   .task-form form {
@@ -120,17 +202,20 @@
   
   .task-card {
     position: relative;
-    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-      0 15px 40px rgba(166, 173, 201, 0.2);
+    box-shadow: 0 5px 10px rgb(255, 255, 255),
+      0 15px 40px rgb(97, 70, 20);
     padding: 24px;
     border-radius: 8px;
     margin-bottom: 24px;
+    
+    color: #fff;
   }
   
   .task-title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 16px;
+    
   }
   
   .task-finished {
@@ -189,20 +274,20 @@
   
   .btn-small {
     padding: 4px 8px;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
     font-size: 14px;
     border-radius: 4px;
   }
   
   .task-delete-btn {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: 15px;
+    right: 15px;
     cursor: pointer;
     background-color: transparent;
     border-radius: 50%;
-    border: 1px solid gray;
-    color: gray;
+    border: 3px solid rgb(255, 166, 0);
+    color: rgb(255, 166, 0);
     width: 25px;
     height: 25px;
     text-align: center;
